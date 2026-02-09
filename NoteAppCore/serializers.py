@@ -1,0 +1,37 @@
+from rest_framework import serializers
+from django.contrib.auth import get_user_model
+import re
+User = get_user_model()
+
+
+
+class RegisterSerializer(serializers.ModelSerializer):
+    phone = serializers.CharField()
+    email = serializers.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email', 'phone']
+        extra_kwargs = {'password': {'write_only': True}}
+    def validate_password(self, value):
+        if not re.search(r'[A-Za-z]', value) or not re.search(r'\d', value):
+            raise serializers.ValidationError(
+                "Password must contain both letters and numbers."
+            )
+        if len(value) < 6:
+            raise serializers.ValidationError("Password must be at least 6 characters.")
+        return value
+    def validate_phone(self, value):
+        if not value.isdigit() or len(value) < 11:
+            raise serializers.ValidationError(
+                "Phone number must be at least 11 digits."
+            )
+        return value
+    def create(self, validated_data):
+        phone = validated_data.pop('phone')
+        password = validated_data.pop('password')
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        user.phone = phone   # if using profile model
+        user.save()
+        return user

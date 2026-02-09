@@ -1,0 +1,20 @@
+from rest_framework import serializers
+from django.contrib.auth import get_user_model
+from . models import Note, Contact
+
+
+User = get_user_model
+
+class NoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = ['id', 'title', 'content', 'created_at', 'modified_at']
+        read_only_fields = [ 'created_at', 'modified_at']
+        
+
+        
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ["id", "author", "email", "phone", "message", "created_at"]
+        read_only_fields = ["created_at"]
