@@ -1,0 +1,149 @@
+.aboutContainer {
+  background-color: black;
+  padding: 1rem 2rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 5px solid white;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+}
+
+.aboutSite,
+.aboutDev {
+    background-color: black;
+    min-height: 50vh;
+    width: 70%;
+    border: 3px solid rgba(0, 255, 255, 0.425);
+    border-radius: 10px;
+    margin: 3rem 0;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2re;
+    padding: 2rem;
+}
+.aboutSite:hover {
+    
+  box-shadow: 0 0 25px #0ff;
+}
+/* .aboutDev {
+    background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 50%;
+  min-height: 50vh;
+  width: 70%;
+  margin: 3rem 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 5px solid red;
+  margin-top: 3rem;
+  color: white;
+  margin-bottom: 3rem;
+   grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+ 
+}  */
+.aboutDev:hover {
+     box-shadow: 0 0 30px #0ff;
+}
+.siteImg,
+.siteText,
+.aboutText {
+    width: 100%;
+}
+.img__1 {
+  width: 90%;
+  height: 70%;
+ 
+ 
+}
+.img__2 {
+  width: 90%;
+  height: 70%;
+ 
+ 
+}
+.siteHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+.devHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+@media (max-width: 600px) {
+  .aboutContainer {
+    border-width: 2px;
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+  .aboutSite,
+  .aboutDev {
+    width: 95%;
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+  .img__1,
+  .img__2 {
+    width: 100%;
+    height: auto;
+  }
+  .siteHeader,
+  .devHeader {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .aboutContainer {
+    border-width: 3px;
+  }
+  .aboutSite,
+  .aboutDev {
+    width: 85%;
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    border: none;
+  }
+  .siteHeader,
+  .devHeader {
+    font-size: 1.7rem;
+  }
+  .img__1,
+  .img__2 {
+    width: 95%;
+    height: auto;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 599px) {
+    .aboutSite, .aboutDev {
+      border: none;
+    }
+}

@@ -1,0 +1,144 @@
+.contactContainer {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    padding: 1rem 2rem;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.contactWrapper {
+ 
+  background: rgba(255, 0, 0, 0.05);
+  border: 2px solid red;
+  padding: 40px;
+  width: 100%;
+  max-width: 720px;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+}
+.contactHeader {
+  font-size: 2rem;
+  color: red;
+  text-align: center;
+  margin-bottom: 25px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contactName {
+  font-size: 1.2rem;
+  padding: 12px 15px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+}
+.contactName:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.705);
+  box-shadow: 0 0 10px #0ff;
+}
+
+
+
+.contactMessage {
+  font-size: 1.2rem;
+  padding: 12px 15px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+  height: 10rem;
+}
+.contactMessage:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.705);
+  box-shadow: 0 0 10px #0ff;
+}
+
+
+
+
+.contactPhone {
+  font-size: 1.2rem;
+  padding: 12px 15px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+}
+.contactPhone:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.705);
+  box-shadow: 0 0 10px #0ff;
+}
+
+
+
+
+.contactMail {
+  font-size: 1.2rem;
+  padding: 12px 15px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
+}
+.contactMail:focus {
+  outline: none;
+  border-color: rgba(0, 255, 255, 0.705);
+  box-shadow: 0 0 10px #0ff;
+}
+.contactBTN {
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 10px;
+  background: red;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 40%;
+}
+.contactBTN:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 15px #0ff;
+  border: 1px solid rgba(0, 255, 255, 0.705);
+   
+}
+
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .contactWrapper {
+        padding: 20px;
+        max-width: 300px;
+    }
+
+    .contactBTN {
+        font-size: 1.2rem;
+        width: 30%;
+    }
+}
+
+
+
