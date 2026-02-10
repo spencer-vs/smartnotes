@@ -37,8 +37,7 @@
   position: relative;
   white-space: nowrap;
   max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-right: 2rem;
 }
 /* Hamburger */
 .hamburger {
