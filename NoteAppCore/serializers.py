@@ -18,7 +18,7 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "Password must contain both letters and numbers."
             )
         if len(value) < 6:
-            raise serializers.ValidationError("Password must be at least 6 characters.")
+            raise serializers.ValidationError("Password must be at least 5 characters.")
         return value
     def validate_phone(self, value):
         if not value.isdigit() or len(value) < 11:
