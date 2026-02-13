@@ -33,13 +33,13 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = "django-insecure-m*6z&h8d6$^(n3m=ump(lsb$q797w^e(*dz-*eh7-ykw%+==g5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "https://smartnotesfrontend.onrender.com",
-    "smartnoteapi.onrender.com"
-    "http://localhost:5173",
-   
+    "smartnoteapi.onrender.com",
+    "smartnotesfrontend.onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 
