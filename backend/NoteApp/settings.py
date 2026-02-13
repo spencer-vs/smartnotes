@@ -37,7 +37,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "https://smartnotesfrontend.onrender.com",
-    "http://localhost:5173"
+    "http://localhost:5173",
     "https://smartnoteapi.onrender.com"
 ]
 
