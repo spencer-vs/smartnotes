@@ -35,7 +35,11 @@ SECRET_KEY = "django-insecure-m*6z&h8d6$^(n3m=ump(lsb$q797w^e(*dz-*eh7-ykw%+==g5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "https://smartnotesfrontend.onrender.com",
+    "http://localhost:5173"
+    "https://smartnoteapi.onrender.com"
+]
 
 
 # Application definition
@@ -87,7 +91,13 @@ SIMPLE_JWT = {
         timedelta(minutes=60),
         "AUTH_HEADER_TYPES": ("Bearer",),
 }
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://smartnotesfrontend.onrender.com",
+    "http://localhost:5173"
+]
 
 ROOT_URLCONF = "NoteApp.urls"
 
@@ -175,6 +185,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage",
 
+CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_ALL_ORIGINS = True
 AUTH_USER_MODEL = 'NoteAppCore.CustomUser'
