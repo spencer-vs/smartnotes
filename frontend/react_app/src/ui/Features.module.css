@@ -115,7 +115,7 @@
 @media (max-width: 600px) {
   .featuresContainer {
     padding: 1rem;
-    border: 3px solid red;
+    border: 3px solid rgba(0, 255, 255, 0.705);
   }
   .featuresHeader {
     font-size: 2rem;
@@ -127,7 +127,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 1rem;
-    border: 3px solid red;
+    border: 3px solid rgba(0, 255, 255, 0.705);
   }
   .firstText {
     font-size: 1rem;

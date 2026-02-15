@@ -22,11 +22,26 @@ const Header = () => {
 
 
   return (
+    <>
+    <div className={styles.headerHeading}>
+     <h1 className={styles.smartnotes}>SmartNotes</h1>
+   </div>
+    
+    
     <div className={styles.header}>
   {/* Top bar */}
   <div className={styles.topBar}>
-    <h1 className={styles.headerHeading}>SmartNotes</h1>
+   
+   
     <div className={styles.rightSide}>
+      
+      <div className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`} onClick={toggleMenu} aria-label='Toggle menu'>
+         <span></span>
+         <span></span>
+         <span></span>
+      </div>
+      
+      
       
       {auth.isAuthenticated && (
         <>
@@ -39,11 +54,7 @@ const Header = () => {
         </>
       )}
      
-      <div className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`} onClick={toggleMenu} aria-label='Toggle menu'>
-         <span></span>
-         <span></span>
-         <span></span>
-      </div>
+      
     </div>
   </div>
   {/* FULLSCREEN MENU */}
@@ -84,6 +95,7 @@ const Header = () => {
     </ul>
   </div>
 </div>
+</>
   );
 };
 export default Header;
