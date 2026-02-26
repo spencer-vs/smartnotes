@@ -43,6 +43,7 @@
   box-sizing: border-box;
   min-height: 5rem;
   
+  
 }
 .topBar {
   display: flex;
@@ -192,7 +193,18 @@
   border-radius: 8px;
   cursor: pointer;
   margin-right: 2rem;
+  
 }
+
+/* .menuInfo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  gap: 1rem;
+} */
+
+
 .logout:hover {
   background: red;
   color: black;

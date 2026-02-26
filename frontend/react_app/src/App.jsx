@@ -12,9 +12,9 @@ import SignUp from "./user/SignUp"
 import ProtectedRoute from './context/ProtectedRoute'
 import About from './ui/About'
 import Features from './ui/Features'
-import Animation from './ui/Animation'
 import SearchNotes from './ui/Search'
 import Contact from './ui/Contact'
+import Animation from './ui/Animation'
 
 
 
@@ -34,9 +34,9 @@ const App = () => {
       <Route path='/signup' element={<SignUp />}></Route>
       <Route path='/about' element={<About />}></Route>
       <Route path='/features' element={<Features />}></Route>
-      <Route path='/animation' element={<Animation />}></Route>
       <Route path='/SearchNotes' element={<SearchNotes />}></Route>      
       <Route path='/contact' element={<Contact />}></Route> 
+       <Route path='/animation' element={<Animation />}></Route> 
      
 
    
