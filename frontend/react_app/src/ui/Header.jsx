@@ -77,6 +77,12 @@ const Header = () => {
            <li className={styles.navItem}><NavLink onClick={toggleMenu} to="/contact" className={({ isActive }) =>
                      `${styles.navLink} ${isActive ? styles.active : ''}`
                       }>Contact Us</NavLink></li>
+          <li className={styles.navItem}><NavLink onClick={toggleMenu} to="/create_task" className={({ isActive }) =>
+                     `${styles.navLink} ${isActive ? styles.active : ''}`
+                      }>Create Task</NavLink></li>
+        <li className={styles.navItem}><NavLink onClick={toggleMenu} to="/display_task" className={({ isActive }) =>
+                     `${styles.navLink} ${isActive ? styles.active : ''}`
+                      }>Task</NavLink></li>
         </>
       ) : (
         <>

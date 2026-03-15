@@ -1,0 +1,103 @@
+import React from 'react'
+import styles from './TaskCreate.module.css'
+import { useState, useEffect } from 'react'
+import Header from '../ui/Header'
+import api from "../api/axios"
+
+const TaskCreate = () => {
+  const [title, setTitle] = useState("");
+  const [task, setTask] = useState("");
+  const [loading, setLoading] = useState(false);
+
+
+  const createTask = () => {
+    setLoading(true)
+    if(!title.trim() || !task.trim()){
+      alert("Title and content are required")
+      return
+    }
+
+    api.post('notes/task/', {
+      title: title,
+      task: task
+    })
+    .then(res => {
+      //setTitle("")
+      //setTask("")
+      console.log(res.data)
+      alert("Task created succesfully")
+      setLoading(false)
+    })
+    .catch(err => {
+      console.error('Failed to create note:', err)
+    })
+
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  return (
+    <div className={styles.task_container}>
+        <Header />
+
+        <div className={styles.task_area}>
+           
+           <div className={styles.task_heading}>
+            <h1>Timetable Builder</h1>
+           </div>
+           
+           <div className={styles.task_title}>
+             <textarea
+                      type="text"
+                      className={styles.create_task}
+                      placeholder="Write Your Title Here..."
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                     
+             ></textarea>
+           </div>
+
+
+           <div className={styles.task_list}>
+            <textarea
+                      type="text"
+                      className={styles.create_list}
+                      placeholder="Write Your List Here..."
+                      value={task}
+                      onChange={(e) => setTask(e.target.value)}
+                     
+             ></textarea>
+           </div>
+
+
+            <button className={styles.task_submit} onClick={createTask}>
+               Create
+           </button> 
+        </div>
+
+
+
+
+        
+       
+    </div>
+  )
+}
+
+export default TaskCreate
+
+
+
+
+// Pol 1231, Pol 1232, Pol 1233, Pol 1234, Pol 1235, Pol 1236, Pol 1237,

@@ -12,3 +12,5 @@ python-dotenv==1.2.1
 rest-framework-simplejwt==0.0.2
 sqlparse==0.5.5
 whitenoise==6.11.0
+groq==1.0.0
+openai==2.24.0

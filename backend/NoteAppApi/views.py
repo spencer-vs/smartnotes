@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import NoteSerializer, ContactSerializer
+from .serializers import NoteSerializer, ContactSerializer, TaskSerializer
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import generics, status
 from rest_framework.views import APIView
@@ -9,6 +9,11 @@ from .models import Note, Contact
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.serializers import ModelSerializer
 from django.db.models import Q
+from openai import OpenAI
+from django.http import JsonResponse
+import os
+from groq import Groq
+from .models import Task
 
 # Create your views here.
 
@@ -75,3 +80,99 @@ class NoteDetailView(generics.RetrieveAPIView):
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user, is_deleted=False)
 
+
+
+
+class TaskDetailView(generics.RetrieveAPIView):
+    serializer_class = TaskSerializer
+    permission_classes = [IsAuthenticated]
+    def get_queryset(self):
+        return Task.objects.filter(user=self.request.user, is_deleted=False)
+
+
+
+
+@api_view(['POST'])
+def create_task(self, request):
+    
+    if request.method != "POST":
+        return JsonResponse({'error': 'Invalid request'}, status=405)
+    try:
+        todo_list = generate_todo_list()
+        if not todo_list:
+            return JsonResponse({'error': 'Could not generate To Do list'}, status=500)
+        new_todo = Task.objects.create(
+            user = self.request.user,
+            list=todo_list
+        )
+        new_todo.save()
+        
+        
+        
+        return JsonResponse({'content': todo_list})
+    except Exception as e:
+        print("error:", "Failed to generate tiemtable", e)
+        return None
+        
+    
+    
+    
+
+
+
+def generate_todo_list(request):
+    try:
+        client = OpenAI(
+        api_key=os.environ.get("GROQ_API_KEY"),
+        base_url="https://api.x.ai/v1",
+        )
+        prompt = f"""
+        Create a Timetable from the items inputed by the user, the timetable should be proportionaly spread to match the 7 days of the week, with days and hours.
+        """
+        completion = client.chat.completions.create(
+        model="grok-beta", # Or current version
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        )
+
+        return JsonResponse({"response": completion.choices[0].message.content})
+    except Exception as e:
+        print("Error generating timetable:", e)
+        return None
+    
+
+
+
+
+
+
+# def generate_todo_list(generics.RetrieveAPIView):
+#     try:
+#         api_key = os.getenv("GROQ_API_KEY")
+#         if not api_key:
+#             print("Groq API key not found")
+#             return None
+        
+        
+#         transcription = transcription[:1200]
+#         client = Groq(api_key=api_key)
+#         prompt = f"""
+#         Based on the generated transcript, create a blog post based on the YouTube video, covering all aspects of the video.
+#         Transcript:
+#         {transcription}
+#         Article:
+#         """
+#         completion = client.chat.completions.create(
+#             model="llama-3.1-8b-instant",
+#             messages=[
+#                 {"role": "user", "content": prompt},
+#             ],
+#             temperature=0.7,
+#             max_tokens=1000,
+#         )
+#         return completion.choices[0].message.content.strip()
+#     except Exception as e:
+#         print("Groq error:", e)
+#         return None

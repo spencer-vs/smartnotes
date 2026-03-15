@@ -15,6 +15,8 @@ import Features from './ui/Features'
 import SearchNotes from './ui/Search'
 import Contact from './ui/Contact'
 import Animation from './ui/Animation'
+import TaskCreate from './Task/TaskCreate'
+import TaskDisplay from './Task/TaskDisplay'
 
 
 
@@ -36,7 +38,9 @@ const App = () => {
       <Route path='/features' element={<Features />}></Route>
       <Route path='/SearchNotes' element={<SearchNotes />}></Route>      
       <Route path='/contact' element={<Contact />}></Route> 
-       <Route path='/animation' element={<Animation />}></Route> 
+      <Route path='/animation' element={<Animation />}></Route> 
+      <Route path='/Create_task' element={<TaskCreate />}></Route> 
+      <Route path='/display_task' element={<TaskDisplay />}></Route> 
      
 
    

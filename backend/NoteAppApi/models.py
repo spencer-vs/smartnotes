@@ -42,3 +42,21 @@ class Contact(models.Model):
     
     def __str__(self):
        return self.author or 'unauthored'
+   
+   
+   
+   
+class Task(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='ToDo'
+    )
+    todo_title = models.CharField(max_length=100, blank=True)
+    todo_list = models.TextField(null=True, blank=True)  
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    
+    def __str__(self):
+        return self.title or 'unititled'
