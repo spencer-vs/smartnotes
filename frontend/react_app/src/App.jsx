@@ -15,12 +15,11 @@ import Features from './ui/Features'
 import Animation from './ui/Animation'
 import SearchNotes from './ui/Search'
 import Contact from './ui/Contact'
-<<<<<<< HEAD
 import Animation from './ui/Animation'
 import TaskCreate from './Task/TaskCreate'
 import TaskDisplay from './Task/TaskDisplay'
-=======
->>>>>>> parent of ed2c780 (New animation)
+
+
 
 
 
@@ -43,12 +42,11 @@ const App = () => {
       <Route path='/animation' element={<Animation />}></Route>
       <Route path='/SearchNotes' element={<SearchNotes />}></Route>      
       <Route path='/contact' element={<Contact />}></Route> 
-<<<<<<< HEAD
       <Route path='/animation' element={<Animation />}></Route> 
       <Route path='/Create_task' element={<TaskCreate />}></Route> 
       <Route path='/display_task' element={<TaskDisplay />}></Route> 
-=======
->>>>>>> parent of ed2c780 (New animation)
+
+
      
 
    
