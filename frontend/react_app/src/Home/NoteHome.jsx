@@ -8,17 +8,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { GrAdd } from "react-icons/gr";
 import { Navigate } from 'react-router-dom'
 import Carousels from '../ui/Carousels'
+import Animation from '../ui/Animation'
 import { AuthContext } from "../context/AuthContext"
 import { FaSearch } from "react-icons/fa"
-import Animation from '../ui/Animation'
 
-// Simple inline spinner component
-const AuthSpinner = () => (
-  <div style={{minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-    <div style={{width:48, height:48, border: '6px solid #ccc', borderTopColor: '#333', borderRadius: '50%', animation: 'spin 1s linear infinite'}} />
-    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-  </div>
-)
 
 
 
@@ -101,22 +94,13 @@ const NoteHome = () => {
   }
 };
 
-  if (auth.loading) {
-    return <AuthSpinner />
-  }
-
-  if (!auth.isAuthenticated) {
-    return (
-      <div>
-        <Animation />
-      </div>
-    )
-  }
-
    return (
     <div>
      
-       <Header /> 
+      <Header />
+       {/* {auth.isAuthenticated && (
+          <Carousels />
+       )} */}
       
 
       <div className={styles.noteContainer}>
@@ -136,7 +120,7 @@ const NoteHome = () => {
           </div>
           </>
         ) : (
-           <Animation />
+          <Animation />
         )}
        
        

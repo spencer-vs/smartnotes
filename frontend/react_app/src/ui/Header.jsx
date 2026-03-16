@@ -45,16 +45,13 @@ const Header = () => {
       
       {auth.isAuthenticated && (
         <>
-        <div className={styles.menuInfo}>
         <span className={styles.username}>
           Hi, {auth.user?.username}
         </span>
         <button className={styles.logout} onClick={handleLogout}>
               Logout
             </button>
-         </div>
         </>
-        
       )}
      
       
