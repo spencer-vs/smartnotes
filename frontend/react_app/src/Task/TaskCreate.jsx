@@ -73,7 +73,7 @@ const TaskCreate = () => {
             <textarea
                       type="text"
                       className={styles.create_list}
-                      placeholder="Write Your List Here.."
+                      placeholder="Write Your List Here....."
                       value={task}
                       onChange={(e) => setTask(e.target.value)}
                      
