@@ -147,32 +147,3 @@ def generate_todo_list(request):
 
 
 
-
-# def generate_todo_list(generics.RetrieveAPIView):
-#     try:
-#         api_key = os.getenv("GROQ_API_KEY")
-#         if not api_key:
-#             print("Groq API key not found")
-#             return None
-        
-        
-#         transcription = transcription[:1200]
-#         client = Groq(api_key=api_key)
-#         prompt = f"""
-#         Based on the generated transcript, create a blog post based on the YouTube video, covering all aspects of the video.
-#         Transcript:
-#         {transcription}
-#         Article:
-#         """
-#         completion = client.chat.completions.create(
-#             model="llama-3.1-8b-instant",
-#             messages=[
-#                 {"role": "user", "content": prompt},
-#             ],
-#             temperature=0.7,
-#             max_tokens=1000,
-#         )
-#         return completion.choices[0].message.content.strip()
-#     except Exception as e:
-#         print("Groq error:", e)
-#         return None
